@@ -10,35 +10,43 @@ class employeeWage
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Wage Per Hour- ");
         int wagePerHour= sc.nextInt();
-        long dailyWage;
+        int dailyWage=0;
         {
-                if (random==1)
+                switch (random)
                 {
+                case 1:
                 System.out.println("Employee is present");
-                        if (empCheck==1)
+                        switch (empCheck)
                         {
-                        System.out.println("Full time");
-                        System.out.print("Enter Full Time Hour- ");
-                        int fullTimeHour= sc.nextInt();
-                        dailyWage=wagePerHour*fullTimeHour;
+                        case 1:
+                                System.out.println("Full time");
+                                System.out.print("Enter Full Time Hour- ");
+                                int fullTimeHour= sc.nextInt();
+                                dailyWage=wagePerHour*fullTimeHour;
+                                break;
+                        case 0:
+                                System.out.println("Part time");
+                                System.out.print("Enter Part Time Hour- ");
+                                int partTimeHour= sc.nextInt();
+                                dailyWage=wagePerHour*partTimeHour;
+                                break;
+                        default:
+                                break;
                         }
-                        else
-                        {
-                        System.out.println("Part time");
-                        System.out.print("Enter Part Time Hour- ");
-                        int partTimeHour= sc.nextInt();
-                        dailyWage=wagePerHour*partTimeHour;
-                        }
-                }
-                else
-                {
+                break;
+                case 0:
                 System.out.println("Employee is absent");
                 dailyWage=0;
+                break;
+                default:
+                break;
                 }
         }
-                 System.out.println("Daily Wage is:"+dailyWage);
+        System.out.println("Daily Wage is:"+dailyWage);
+
         }
 }
+
 
 
 
