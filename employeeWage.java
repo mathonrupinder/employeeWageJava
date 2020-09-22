@@ -5,49 +5,44 @@ class employeeWage
         {
         System.out.println("Welcome to Employee Wage Computation Program");
         System.out.println("--------------------------------------------");
-        int random=(int)Math.round(Math.random());
-        int empCheck=(int)Math.round(Math.random());
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Wage Per Hour- ");
         int wagePerHour= sc.nextInt();
+        System.out.print("Enter Working Days in Month- ");
+        int workingDays= sc.nextInt();
         int dailyWage=0;
+        int totalWage=0;
+        int fullTimeHour=8;
+        int partTimeHour=4;
+        System.out.println("Day: No     DailyWage    TotalWage");
+        for (int day=1;day<=workingDays;day++)
         {
+        int random=(int)Math.round(Math.random());
+        int empCheck=(int)Math.round(Math.random());
                 switch (random)
                 {
                 case 1:
-                System.out.println("Employee is present");
+
                         switch (empCheck)
                         {
                         case 1:
-                                System.out.println("Full time");
-                                System.out.print("Enter Full Time Hour- ");
-                                int fullTimeHour= sc.nextInt();
-                                dailyWage=wagePerHour*fullTimeHour;
+                                dailyWage=fullTimeHour*wagePerHour;
                                 break;
                         case 0:
-                                System.out.println("Part time");
-                                System.out.print("Enter Part Time Hour- ");
-                                int partTimeHour= sc.nextInt();
-                                dailyWage=wagePerHour*partTimeHour;
+                                dailyWage=partTimeHour*wagePerHour;
                                 break;
                         default:
                                 break;
                         }
                 break;
                 case 0:
-                System.out.println("Employee is absent");
                 dailyWage=0;
                 break;
                 default:
                 break;
                 }
-        }
-        System.out.println("Daily Wage is:"+dailyWage);
-
-        }
+        totalWage=dailyWage+totalWage;
+        System.out.println("Day  " +day+"        "+dailyWage+"            "+totalWage);
+  }
 }
-
-
-
-
-
+}
