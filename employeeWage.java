@@ -9,14 +9,17 @@ class employeeWage
         System.out.print("Enter Wage Per Hour- ");
         int wagePerHour= sc.nextInt();
         System.out.print("Enter Working Days in Month- ");
-        int workingDays= sc.nextInt();
+	int workingDays= sc.nextInt();
+        System.out.print("Enter Working Hours in Month- ");
+        int workingHours= sc.nextInt();
         int dailyWage=0;
         int totalWage=0;
-        int fullTimeHour=8;
-        int partTimeHour=4;
-        System.out.println("Day: No     DailyWage    TotalWage");
-        for (int day=1;day<=workingDays;day++)
-        {
+        int employeeHours=0;
+        int days=0;
+        int workHours=0;
+        System.out.println("Day: No     workHours          DailyWage           TotalWage");
+        while (days<workingDays && workHours<workingHours)
+	{
         int random=(int)Math.round(Math.random());
         int empCheck=(int)Math.round(Math.random());
                 switch (random)
@@ -26,10 +29,10 @@ class employeeWage
                         switch (empCheck)
                         {
                         case 1:
-                                dailyWage=fullTimeHour*wagePerHour;
+                                employeeHours=8;
                                 break;
                         case 0:
-                                dailyWage=partTimeHour*wagePerHour;
+                                employeeHours=4;
                                 break;
                         default:
                                 break;
@@ -41,8 +44,12 @@ class employeeWage
                 default:
                 break;
                 }
+        days++;
+        workHours=employeeHours+workHours;
+        dailyWage=employeeHours*wagePerHour;
         totalWage=dailyWage+totalWage;
-        System.out.println("Day  " +day+"        "+dailyWage+"            "+totalWage);
+        System.out.println("Day  " +days+"        "+workHours+"                   "+dailyWage+"               "+totalWage);
+
   }
 }
 }
