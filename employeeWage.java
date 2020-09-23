@@ -54,5 +54,17 @@ System.out.println(obj1.Company_Name);
 System.out.println("---------------------------------");
 System.out.println("Day No.      Work_Hours      Daily_Wage     Total_Wage");
 obj1.calculation(20,20,100);
+Employee obj2=new Employee();
+obj2.Company_Name="COMPANY NAME::GOOGLE";
+System.out.println(obj2.Company_Name);
+System.out.println("---------------------------------");
+System.out.println("Day No.      Work_Hours      Daily_Wage     Total_Wage");
+obj2.calculation(30,25,150);
+Employee obj3=new Employee();
+obj3.Company_Name="COMPANY NAME::TATA CONSULTANCY SERVICES";
+System.out.println(obj3.Company_Name);
+System.out.println("---------------------------------");
+System.out.println("Day No.      Work_Hours      Daily_Wage     Total_Wage");
+obj3.calculation(15,25,120);
 }
 }
