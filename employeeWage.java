@@ -1,5 +1,9 @@
 import java.util.*;
-class Employee 
+interface Employee1
+{
+void calculation();
+}
+ class Employee implements Employee1
 {
          public int WAGE_PER_HOUR,WORKING_DAYS,WORKING_HOURS;
          public int employeeHours;
@@ -10,7 +14,8 @@ class Employee
          String Company_Name;
          ArrayList<Integer> employeeDailyWage=new ArrayList<Integer>();
          ArrayList<Integer> employeeTotalWage=new ArrayList<Integer>();
-        public void calculation()
+         ArrayList<String> company=new ArrayList<String>();
+        public void calculation(String Company_Name,int WAGE_PER_HOUR,int WORKING_DAYS,int WORKING_HOURS)
         {
                 while (DAYS<WORKING_DAYS && WORK_HOURS<WORKING_HOURS)
         {
@@ -43,37 +48,43 @@ class Employee
         TOTAL_WAGE=(TOTAL_WAGE+DAILY_WAGE);
         employeeTotalWage.add(TOTAL_WAGE);
         employeeDailyWage.add(DAILY_WAGE);
+}
 
-        System.out.println(DAILY_WAGE+"    "+TOTAL_WAGE);
+        System.out.println(employeeDailyWage+"     "+employeeTotalWage);
+        System.out.println("Total Wage of "+Company_Name+"  "+employeeTotalWage.get(employeeTotalWage.size()-1));
+        company.add(Company_Name);
+        System.out.println(company);
 }
-System.out.println("Total Wage of "+Company_Name+"  "+employeeWage1.get(employeeWage1.size()-1));
 }
-}
-class employeeWage
+
+class employeeWageBuilder
 {
 
         public static void main(String args[])
 {
+
         System.out.println("Welcome To Employee Wage Computation Problem");
+        ArrayList<String> company=new ArrayList<String>();
         Scanner sc= new Scanner(System.in);
         Scanner in = new Scanner(System.in);
         System.out.println("Enter no. of companies");
         int limit=sc.nextInt();
         int i=0;
+        Employee obj1=new Employee();
         while (i!=limit)
         {
                 i++;
-                Employee obj1=new Employee();
                 System.out.println("Enter Company Name");
-                obj1.Company_Name= in.nextLine();
+                String Company_Name= in.nextLine();
                 System.out.println("Enter wage per hour");
-                obj1.WAGE_PER_HOUR= sc.nextInt();
+                int WAGE_PER_HOUR= sc.nextInt();
                 System.out.println("Enter Working_Days");
-                obj1.WORKING_DAYS= sc.nextInt();
+                int WORKING_DAYS= sc.nextInt();
                 System.out.println("Enter Working_Hours");
-                obj1.WORKING_HOURS= sc.nextInt();
-                obj1.calculation();
-}
-}
-}
+                int WORKING_HOURS= sc.nextInt();
+                obj1.calculation(Company_Name,WAGE_PER_HOUR,WORKING_DAYS,WORKING_HOURS);
 
+        }
+
+}
+}
