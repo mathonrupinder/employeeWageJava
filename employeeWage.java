@@ -1,9 +1,5 @@
 import java.util.*;
-interface Employee1
-{
-void calculation();
-}
- class Employee implements Employee1
+ class Employee
 {
          public int WAGE_PER_HOUR,WORKING_DAYS,WORKING_HOURS;
          public int employeeHours;
@@ -13,9 +9,10 @@ void calculation();
          public int WORK_HOURS=0;
          String Company_Name;
          ArrayList<Integer> employeeDailyWage=new ArrayList<Integer>();
+         ArrayList<Integer> detailTotalWage=new ArrayList<Integer>();
          ArrayList<Integer> employeeTotalWage=new ArrayList<Integer>();
          ArrayList<String> company=new ArrayList<String>();
-        public void calculation(String Company_Name,int WAGE_PER_HOUR,int WORKING_DAYS,int WORKING_HOURS)
+        public void employeeWageBuilder(String Company_Name,int WAGE_PER_HOUR,int WORKING_DAYS,int WORKING_HOURS)
         {
                 while (DAYS<WORKING_DAYS && WORK_HOURS<WORKING_HOURS)
         {
@@ -46,18 +43,35 @@ void calculation();
         WORK_HOURS=employeeHours+WORK_HOURS;
         DAILY_WAGE=(employeeHours*WAGE_PER_HOUR);              //Daily Wage Calculation
         TOTAL_WAGE=(TOTAL_WAGE+DAILY_WAGE);
-        employeeTotalWage.add(TOTAL_WAGE);
-        employeeDailyWage.add(DAILY_WAGE);
-}
+	employeeDailyWage.add(DAILY_WAGE);
+	employeeTotalWage.add(TOTAL_WAGE);
+	}
+        System.out.println(employeeDailyWage);
 
-        System.out.println(employeeDailyWage+"     "+employeeTotalWage);
-        System.out.println("Total Wage of "+Company_Name+"  "+employeeTotalWage.get(employeeTotalWage.size()-1));
+        System.out.println(employeeTotalWage);
         company.add(Company_Name);
-        System.out.println(company);
-}
-}
+        detailTotalWage.add(TOTAL_WAGE);
+        }
+public void query(){
 
-class employeeWageBuilder
+        Scanner sc= new Scanner(System.in);
+        System.out.println("List of Companies:"+company);
+        System.out.println("-----------------------------------------");
+        System.out.println("Enter index to find the details of company start from 0");
+        int i=sc.nextInt();
+        if(i>company.size())
+        {
+         System.out.println("COMPANY NOT FOUND");
+        }
+        else
+        {
+        System.out.println("COMPANY NAME::"+company.get(i));
+        System.out.println("TOTAL WAGE::"+detailTotalWage.get(i));
+        }
+
+}
+}
+class employeeWage
 {
 
         public static void main(String args[])
@@ -82,9 +96,9 @@ class employeeWageBuilder
                 int WORKING_DAYS= sc.nextInt();
                 System.out.println("Enter Working_Hours");
                 int WORKING_HOURS= sc.nextInt();
-                obj1.calculation(Company_Name,WAGE_PER_HOUR,WORKING_DAYS,WORKING_HOURS);
+                obj1.employeeWageBuilder(Company_Name,WAGE_PER_HOUR,WORKING_DAYS,WORKING_HOURS);
 
         }
-
+                obj1.query();
 }
 }
