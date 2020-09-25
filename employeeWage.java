@@ -32,20 +32,20 @@ import java.util.*;
                         default:
                                 break;
                         }
-                break;
+			break;
                 case 0:                                 //Is Absent
-                DAILY_WAGE=0;
-                break;
+			DAILY_WAGE=0;
+			break;
                 default:
-                break;
+			break;
                 }
         DAYS++;
         WORK_HOURS=employeeHours+WORK_HOURS;
         DAILY_WAGE=(employeeHours*WAGE_PER_HOUR);              //Daily Wage Calculation
         TOTAL_WAGE=(TOTAL_WAGE+DAILY_WAGE);
-	employeeDailyWage.add(DAILY_WAGE);
-	employeeTotalWage.add(TOTAL_WAGE);
-	}
+        employeeDailyWage.add(DAILY_WAGE);
+        employeeTotalWage.add(TOTAL_WAGE);
+        }
         System.out.println(employeeDailyWage);
 
         System.out.println(employeeTotalWage);
@@ -75,7 +75,7 @@ class employeeWage
 {
 
         public static void main(String args[])
-{
+        {
 
         System.out.println("Welcome To Employee Wage Computation Problem");
         ArrayList<String> company=new ArrayList<String>();
@@ -100,5 +100,11 @@ class employeeWage
 
         }
                 obj1.query();
+        }
 }
-}
+
+
+
+
+
+
